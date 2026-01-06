@@ -1,0 +1,17 @@
+{
+  "header.searchPlaceholder": "Search...",
+  "header.languageSwitcher": "Language",
+  "header.themeSwitcher": "Theme",
+  "header.notificationMenu": "Notifications",
+  "header.userProfileMenu": "Profile",
+  "sidebar.teamSwitcher": "Switch Team",
+  "sidebar.navMain": "Main Navigation",
+  "sidebar.navProjects": "Projects",
+  "sidebar.navUser": "User",
+  "chartArea.title": "Total Visitors",
+  "chartArea.description.full": "Total for the last 3 months",
+  "chartArea.description.short": "Last 3 months",
+  "chartArea.timeRange.90d": "Last 3 months",
+  "chartArea.timeRange.30d": "Last 30 days",
+  "chartArea.timeRange.7d": "Last 7 days"
+}
