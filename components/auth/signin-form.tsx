@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 
-export default function LoginForm() {
+export default function SigninForm() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-md space-y-6">
@@ -64,7 +64,7 @@ export default function LoginForm() {
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
                 <Link
-                  href="/forgot-password"
+                  href="/auth/forgot-password"
                   className="text-xs text-muted-foreground hover:text-primary"
                 >
                   Forgot password?
