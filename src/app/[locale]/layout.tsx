@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Anek_Bangla } from "next/font/google";
 import { notFound } from "next/navigation";
 import "./globals.css";
 import { Providers } from "./providers";
@@ -12,6 +12,14 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// Configure Anek Bangla font for Bengali text
+const anekBangla = Anek_Bangla({
+  subsets: ["bengali", "latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-anek-bangla",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -42,12 +50,18 @@ export default async function RootLayout({
   }
 
   const localeMessages = messages[locale];
+  const isBangla = locale === "bn";
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
+        className={`
+          ${geistSans.variable} 
+          ${geistMono.variable} 
+          ${anekBangla.variable}
+          ${isBangla ? "font-bangla" : ""}
+          antialiased
+        `}
       >
         <Providers locale={locale} messages={localeMessages}>
           {children}
