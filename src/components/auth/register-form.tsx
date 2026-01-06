@@ -10,12 +10,14 @@ import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
 import { Separator } from "@/src/components/ui/separator";
+import { useLocaleUrl } from "@/src/hooks/use-locale-url";
 
 export function RegisterForm() {
   const t = useTranslations("Register");
   const tCommon = useTranslations("Common");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { localizeUrl } = useLocaleUrl();
 
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
@@ -43,7 +45,9 @@ export function RegisterForm() {
             <h2 className="text-2xl font-semibold tracking-tight">
               {t("sign_up")}
             </h2>
-            <p className="text-sm text-muted-foreground">{t("enter_details")}</p>
+            <p className="text-sm text-muted-foreground">
+              {t("enter_details")}
+            </p>
           </div>
 
           {/* Form */}
@@ -137,7 +141,7 @@ export function RegisterForm() {
         <p className="text-center text-xs text-muted-foreground">
           {t("already_have_account")}{" "}
           <Link
-            href="/auth/signin"
+            href={localizeUrl("/auth/signin")}
             className="underline underline-offset-4 hover:text-primary"
           >
             {t("log_in")}

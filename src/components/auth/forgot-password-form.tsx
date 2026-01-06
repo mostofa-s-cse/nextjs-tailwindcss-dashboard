@@ -7,9 +7,11 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { Label } from "@/src/components/ui/label";
+import { useLocaleUrl } from "@/src/hooks/use-locale-url";
 
 export function ForgotPasswordForm() {
   const t = useTranslations("ForgotPassword");
+  const { localizeUrl } = useLocaleUrl();
 
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
@@ -58,7 +60,7 @@ export function ForgotPasswordForm() {
         <p className="text-center text-sm text-muted-foreground">
           {t("no_account")}{" "}
           <Link
-            href="/auth/register"
+            href={localizeUrl("/auth/register")}
             className="underline underline-offset-4 hover:text-primary"
           >
             {t("register")}

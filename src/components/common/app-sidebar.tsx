@@ -26,6 +26,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/src/components/ui/sidebar";
+import { useLocaleUrl } from "@/src/hooks/use-locale-url";
 
 // Static data for user and teams
 const user = {
@@ -54,6 +55,7 @@ const teams = [
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const t = useTranslations("Common");
+  const { localizeUrl } = useLocaleUrl();
 
   // Navigation items with translations
   const navMain = [
@@ -64,15 +66,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       items: [
         {
           title: t("sign_in"),
-          url: "/auth/signin",
+          url: localizeUrl("/auth/signin"),
         },
         {
           title: t("register"),
-          url: "/auth/register",
+          url: localizeUrl("/auth/register"),
         },
         {
           title: t("forgot_password"),
-          url: "/auth/forgot-password",
+          url: localizeUrl("/auth/forgot-password"),
         },
       ],
     },

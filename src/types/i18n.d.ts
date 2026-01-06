@@ -1,5 +1,8 @@
-import type en from "../locales/en.json";
+import en from "../locales/en.json";
+import "next-intl";
+
+type Messages = typeof en;
 
 declare module "next-intl" {
-  interface IntlMessages extends Record<keyof typeof en, (typeof en)[keyof typeof en]> {}
+  interface IntlMessages extends Messages {}
 }

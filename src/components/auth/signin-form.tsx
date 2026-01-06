@@ -18,11 +18,13 @@ import {
   CardFooter,
 } from "@/src/components/ui/card";
 import { Separator } from "@/src/components/ui/separator";
+import { useLocaleUrl } from "@/src/hooks/use-locale-url";
 
 export default function SigninForm() {
   const t = useTranslations("Login");
   const tCommon = useTranslations("Common");
   const [showPassword, setShowPassword] = useState(false);
+  const { localizeUrl } = useLocaleUrl();
 
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
@@ -64,7 +66,7 @@ export default function SigninForm() {
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">{t("password")}</Label>
                 <Link
-                  href="/auth/forgot-password"
+                  href={localizeUrl("/auth/forgot-password")}
                   className="text-xs text-muted-foreground hover:text-primary"
                 >
                   {t("forgot_password")}
@@ -120,11 +122,17 @@ export default function SigninForm() {
           <CardFooter className="justify-center">
             <p className="text-center text-xs text-muted-foreground">
               {t("terms_agreement")}{" "}
-              <Link href="/terms" className="underline hover:text-primary">
+              <Link
+                href={localizeUrl("/terms")}
+                className="underline hover:text-primary"
+              >
                 {t("terms")}
               </Link>{" "}
               &{" "}
-              <Link href="/privacy" className="underline hover:text-primary">
+              <Link
+                href={localizeUrl("/privacy")}
+                className="underline hover:text-primary"
+              >
                 {t("privacy_policy")}
               </Link>
               .
